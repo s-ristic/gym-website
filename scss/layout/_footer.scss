@@ -1,0 +1,101 @@
+@use '../utils' as *;
+
+.footer {
+  background: $dark-color;
+  padding: 3rem;
+  @include grid(1);
+
+  @include mq(lg) {
+    padding: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__navigation {
+    ul {
+      display: flex;
+      width: max-content;
+      margin: 0 auto;
+
+      li {
+        margin-right: 0.5rem;
+
+        @include mq(lg) {
+          margin-right: 2.5rem;
+        }
+
+        a {
+          font-size: font-size(s);
+          color: $light-color;
+          line-height: 5rem;
+          text-transform: uppercase;
+          opacity: opacity(7);
+          @extend %transition;
+
+          &:hover {
+            opacity: opacity(10);
+          }
+        }
+      }
+    }
+  }
+
+  &__socialMedia {
+    ul {
+      position: relative;
+      @include flex();
+
+      li {
+        position: relative;
+
+        &:first-of-type {
+          @include pseudo($top: 50%, $left: -105%, $height: 0.3rem) {
+            background: $blue-color;
+          }
+        }
+
+        &:last-of-type {
+          @include pseudo($top: 50%, $left: initial, $height: 0.3rem) {
+            right: -105%;
+            background: $blue-color;
+          }
+        }
+      }
+
+      a {
+        width: 5rem;
+        height: 5rem;
+        border-radius: border-radius(circle);
+        text-align: center;
+        line-height: 5rem;
+        font-size: font-size(xl);
+        background: $main-color;
+        color: $light-color;
+        margin: 0 0.5rem;
+        @extend %transition;
+
+        &:hover {
+          background: $blue-color;
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    p {
+      text-transform: uppercase;
+      font-size: font-size(s);
+      letter-spacing: 0.15rem;
+      text-align: center;
+      line-height: 5rem;
+
+      @include mq(lg) {
+        text-align: right;
+      }
+
+      span {
+        opacity: opacity(7);
+      }
+    }
+  }
+}

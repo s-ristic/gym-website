@@ -1,0 +1,127 @@
+@use '../utils' as *;
+
+.motivation {
+  background: $gray-color;
+  padding-bottom: 9rem;
+  @include grid(1);
+
+  @include mq(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__video {
+    position: relative;
+    height: 35rem;
+    border-radius: border-radius(m);
+    overflow: hidden;
+
+    &PlayBtn {
+      position: absolute;
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      width: 8rem;
+      height: 8rem;
+      border-radius: border-radius(circle);
+      @include flex();
+      background: $main-color;
+      font-size: font-size(l);
+      color: $light-color;
+      box-shadow: box-shadow(border);
+      z-index: 1;
+      cursor: pointer;
+      @extend %transition;
+
+      &:hover {
+        background: $dark-color;
+      }
+
+      .fas {
+        position: absolute;
+      }
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    background: $light-color;
+    padding: 1rem;
+    border-radius: border-radius(m);
+    text-align: center;
+
+    @include mq(lg) {
+      padding: 4rem;
+    }
+
+    a {
+      @include mq(lg) {
+        width: 50%;
+      }
+    }
+  }
+
+  &__items {
+    @include grid(3, 0.2rem);
+    background: $gray-color;
+    margin: 2rem 0;
+
+    span {
+      background: $light-color;
+      padding: 2rem 0.5rem;
+      font-size: font-size(m);
+      color: $dark-color;
+      @extend %transition;
+
+      &:hover {
+        background: $main-color;
+      }
+    }
+  }
+
+  &__imageBox {
+    position: relative;
+    width: 100%;
+    min-height: 30rem;
+    //height: 100%;
+    border-radius: border-radius(m);
+    overflow: hidden;
+
+    @include pseudo() {
+      background: $blue-color;
+      opacity: opacity(2);
+      z-index: 1;
+      transform: scale(0);
+      transform-origin: bottom left;
+      @extend %transition;
+    }
+
+    @include pseudo($location: after) {
+      background: $blue-color;
+      opacity: opacity(2);
+      z-index: 1;
+      transform: scale(0);
+      transform-origin: top right;
+      @extend %transition;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
+}

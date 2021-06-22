@@ -1,0 +1,64 @@
+@use '../utils' as *;
+
+.testimonial {
+  background: url('../images/testimonial/testimonial-bg.jpg') center/100% 100%;
+  @include grid(1, 3rem);
+
+  @include mq(lg) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+
+  &__card {
+    background: $blue-transparent;
+    padding: 2rem 0;
+    border-radius: border-radius(m);
+    text-align: center;
+    backdrop-filter: blur(0.25rem);
+    @extend %transition;
+
+    &:hover {
+      background: $blue-color;
+    }
+
+    > img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: border-radius(circle);
+      margin: 2rem auto;
+      box-shadow: box-shadow(border);
+    }
+
+    span {
+      display: inline-block;
+      font-size: font-size(s);
+      font-family: font-family(big);
+      color: $light-color;
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      opacity: opacity(5);
+      margin: 2rem 0 1rem;
+    }
+  }
+
+  &__stars {
+    position: relative;
+    background: $main-color;
+    border-radius: border-radius(round);
+    height: 4rem;
+    padding: 1.2rem 2rem;
+    margin: 0 auto;
+    width: 60%;
+
+    @include pseudo(before, '', absolute, 50%, -25%, 18%, 0.3rem) {
+      background: $gray-color;
+      opacity: opacity(2);
+    }
+
+    @include pseudo(after, '', absolute, 50%, initial, 18%, 0.3rem) {
+      right: -25%;
+      background: $gray-color;
+      opacity: opacity(2);
+    }
+  }
+}

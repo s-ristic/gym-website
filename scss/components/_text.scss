@@ -1,0 +1,153 @@
+@use '../utils/' as *;
+
+h1 {
+  font-size: font-size(xxxl);
+  color: $main-color;
+  text-transform: uppercase;
+  text-align: center;
+  display: none;
+}
+
+h2 {
+  font-family: font-family(big);
+  font-size: font-size(xxl);
+  color: $light-color;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h3 {
+  font-size: font-size(m);
+  color: $light-color;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: font-size(s);
+  color: $main-color;
+}
+
+p {
+  color: $light-color;
+  font-size: font-size(m);
+}
+
+.header {
+  &__text {
+    p {
+      text-transform: uppercase;
+      letter-spacing: 0.8rem;
+      padding-left: 0.8rem;
+
+      &:first-of-type {
+        margin-bottom: 5rem;
+
+        @include mq(lg) {
+          margin-bottom: 0;
+        }
+      }
+
+      &:last-of-type {
+        margin-left: auto;
+      }
+
+      span {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.blog {
+  h2 {
+    font-size: font-size(l);
+    margin-bottom: 2rem;
+  }
+}
+
+.motivation {
+  h2 {
+    color: $dark-color;
+    margin-bottom: 4rem;
+  }
+
+  p {
+    color: $dark-color;
+    line-height: 2;
+
+    &:first-of-type {
+      font-size: font-size(l);
+      font-weight: font-weight(bold);
+      margin-bottom: 2rem;
+    }
+
+    &:last-of-type {
+      opacity: opacity(7);
+    }
+  }
+}
+
+.testimonial {
+  h2 {
+    font-size: font-size(l);
+  }
+
+  p {
+    margin: 3rem 0;
+    padding: 0 2rem;
+    border-left: 0.5rem solid $main-color;
+    border-right: 0.5rem solid $main-color;
+    opacity: opacity(7);
+  }
+}
+
+.schedule {
+  h2 {
+    position: relative;
+    font-size: font-size(xl);
+    font-weight: font-weight(bold);
+    text-align: left;
+    margin-bottom: 3rem;
+
+    @include pseudo(before, '', absolute, 50%, 12rem, 40%, 0.1rem) {
+      transform: translateY(-50%);
+      background: $gray-transparent;
+    }
+
+    @include pseudo(after, '', absolute, 50%, initial, 45%, 0.5rem) {
+      right: 0;
+      transform: translateY(-50%);
+      background: $main-color;
+      border-radius: border-radius(round);
+    }
+  }
+}
+
+.pricelist {
+  h2 {
+    font-size: font-size(l);
+    text-align: left;
+  }
+}
+
+.contact {
+  h2 {
+    position: relative;
+    font-size: font-size(xl);
+    font-weight: font-weight(bold);
+    text-align: left;
+    margin-bottom: 3rem;
+
+    @include pseudo(before, '', absolute, 50%, 11rem, 40%, 0.1rem) {
+      transform: translateY(-50%);
+      background: $gray-transparent;
+    }
+
+    @include pseudo(after, '', absolute, 50%, initial, 45%, 0.5rem) {
+      right: 0;
+      transform: translateY(-50%);
+      background: $main-color;
+      border-radius: border-radius(round);
+    }
+  }
+}

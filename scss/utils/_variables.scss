@@ -1,0 +1,66 @@
+$main-color: #f3a60c;
+$dark-color: #001119;
+$light-color: #fff;
+$dark-blue-color: #001621;
+$blue-color: #012233;
+$gray-color: #f3f3f3;
+$blue-transparent: rgba(1, 34, 51, 0.7);
+$gray-transparent: rgba(255, 255, 255, 0.2);
+
+$font-sizes: (
+  'xs': 1rem,
+  's': 1.2rem,
+  'm': 1.6rem,
+  'l': 1.8rem,
+  'xl': 2.4rem,
+  'xxl': 4rem,
+  'xxxl': 6rem,
+);
+
+$font-weights: (
+  'regular': 400,
+  'bold': 700,
+);
+
+$font-families: (
+  'sans-serif': #{'Poppins',
+  sans-serif},
+  'big': #{'Oswald',
+  sans-serif},
+);
+
+$border-radius: (
+  's': 0.7rem,
+  'm': 1.2rem,
+  'l': 3rem,
+  'round': 5rem,
+  'circle': 50%,
+);
+
+$box-shadows: (
+  's': 0 0.5rem 1rem rgba(0, 0, 0, 0.3),
+  'm': 0 -0.5rem 3rem rgba(0, 0, 0, 0.5),
+  'l': 2rem 2rem 5rem rgba(0, 0, 0, 0.5),
+  'border': 0 0 0 2rem $gray-transparent,
+);
+
+$opacities: (
+  1: 0.1,
+  2: 0.2,
+  5: 0.5,
+  7: 0.7,
+  10: 1,
+);
+
+$breakpoints: (
+  'xs': 360px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'hd': 1280px,
+  'fhd': 1920px,
+  'qhd': 2560px,
+  'uhd': 3840px,
+  'fivek': 5120px,
+  'eightk': 7680px,
+);

@@ -1,0 +1,120 @@
+@use '../utils' as *;
+
+.schedule {
+  background: url('../images/schedule-bg.jpg') center/100% 100%;
+  padding-bottom: 9rem;
+  @include grid(1, 2rem);
+
+  @include mq(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  > span {
+    grid-column: 1/-1;
+    display: inline-block;
+    font-size: font-size(s);
+    font-family: font-family(big);
+    color: $light-color;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  &__details {
+    background: $blue-transparent;
+    padding: 3rem;
+    border-radius: border-radius(m);
+    backdrop-filter: blur(0.25rem);
+  }
+
+  &__head {
+    @include flex($justify-content: space-between);
+    border: 0.1rem solid $gray-transparent;
+    width: 100%;
+    height: 5rem;
+    border-radius: border-radius(round);
+    padding: 0 3rem;
+    margin-bottom: 3rem;
+
+    li {
+      font-size: font-size(m);
+      font-family: font-family(big);
+      font-weight: font-weight(bold);
+      color: $light-color;
+      text-transform: uppercase;
+      opacity: opacity(5);
+      cursor: pointer;
+    }
+  }
+
+  &__active {
+    opacity: opacity(10) !important;
+  }
+
+  &__body {
+    @include grid(2, 0 3rem);
+    grid-auto-flow: dense;
+
+    li {
+      font-size: font-size(s);
+      color: $light-color;
+      height: 5rem;
+      @include flex($justify-content: space-between, $wrap: wrap);
+
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        grid-column: 1/2;
+      }
+
+      &:nth-of-type(5),
+      &:nth-of-type(6),
+      &:nth-of-type(7),
+      &:nth-of-type(8) {
+        grid-column: 2/3;
+      }
+    }
+  }
+
+  &__time {
+    opacity: opacity(5);
+  }
+
+  &__line {
+    display: block;
+    flex: 0.6;
+    border-bottom: 0.1rem dashed $light-color;
+    opacity: 0.5;
+  }
+
+  &__form {
+    background: $blue-transparent;
+    padding: 3rem;
+    border-radius: border-radius(m);
+    text-align: center;
+    backdrop-filter: blur(0.25rem);
+
+    input {
+      outline: none;
+      background: transparent;
+      border: 0.1rem solid $gray-transparent;
+      display: block;
+      width: 100%;
+      height: 5rem;
+      padding: 0 2rem;
+      margin-bottom: 1rem;
+      border-radius: border-radius(round);
+      font-family: inherit;
+      color: $light-color;
+      font-size: font-size(m);
+
+      &::placeholder {
+        color: $light-color;
+        opacity: opacity(5);
+        font-size: font-size(s);
+      }
+    }
+  }
+}

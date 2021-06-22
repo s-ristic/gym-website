@@ -1,0 +1,36 @@
+@use '../utils' as *;
+
+.divider {
+  background: $gray-color;
+  padding: 8rem 4rem 0;
+
+  p,
+  h2 {
+    text-transform: uppercase;
+    color: $dark-color;
+    font-size: font-size(xl);
+    font-weight: font-weight(bold);
+    text-align: left;
+
+    @include mq(lg) {
+      position: relative;
+
+      @include pseudo(before, '', absolute, 50%, 22rem, 80%, 0.2rem) {
+        transform: translateY(-50%);
+        background: $dark-color;
+        opacity: opacity(1);
+      }
+
+      @include pseudo(after, '', absolute, 50%, initial, 45%, 0.5rem) {
+        right: 0;
+        transform: translateY(-50%);
+        background: $main-color;
+        border-radius: border-radius(round);
+      }
+    }
+
+    span {
+      color: $main-color;
+    }
+  }
+}

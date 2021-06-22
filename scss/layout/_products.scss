@@ -1,0 +1,70 @@
+@use '../utils' as *;
+
+.products {
+  padding: 0;
+  background: $gray-color;
+
+  &__list {
+    padding: 3rem 3rem 9rem;
+    @include grid(1);
+
+    @include mq(lg) {
+      padding: 4rem 4rem 9rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__product {
+    padding: 2rem;
+    border-radius: border-radius(m);
+    background: #fff;
+  }
+
+  &__imageBox {
+    position: relative;
+    height: 25rem;
+    padding: 1rem;
+    border: 0.1rem solid $gray-color;
+  }
+
+  &__price,
+  &__fullPrice {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $main-color;
+    color: $light-color;
+    font-size: font-size(m);
+    font-weight: font-weight(bold);
+    font-family: font-family(big);
+    letter-spacing: 0.15rem;
+    border-radius: border-radius(s);
+    padding: 0.5rem 2rem;
+  }
+
+  &__fullPrice {
+    top: 4.5rem;
+    background: $dark-color;
+    font-size: font-size(s);
+    padding: 0.25rem 1rem;
+    text-decoration: line-through;
+  }
+
+  &__category {
+    display: block;
+    text-align: center;
+    font-size: font-size(s);
+    font-family: font-family(big);
+    color: $dark-color;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    opacity: opacity(5);
+    margin: 3rem 0 1.5rem;
+  }
+
+  h3 {
+    color: $dark-color;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

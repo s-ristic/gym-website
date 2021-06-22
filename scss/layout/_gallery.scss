@@ -1,0 +1,42 @@
+@use '../utils' as *;
+
+.gallery {
+  @include grid(1, 0);
+
+  @include mq(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__imageBox {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+
+    img {
+      position: absolute;
+      object-fit: cover;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    width: 8rem;
+    height: 8rem;
+    border-radius: border-radius(circle);
+    @include flex();
+    background: $main-color;
+    font-size: font-size(l);
+    color: $light-color;
+    box-shadow: box-shadow(border);
+    z-index: 1;
+    cursor: pointer;
+    @extend %transition;
+
+    &:hover {
+      background: $dark-color;
+    }
+  }
+}

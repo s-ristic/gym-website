@@ -1,0 +1,304 @@
+@use '../utils' as *;
+
+.header {
+  background: #96c1d6 url('../images/header-bg.png') center/100% 100%;
+  background-blend-mode: multiply;
+
+  // top
+
+  &__top {
+    @include flex(row, space-between, flex-start);
+    background: $dark-color;
+
+    @include mq(lg) {
+      justify-content: center;
+    }
+  }
+
+  .nav {
+    @include flex($align-items: flex-start);
+
+    &__menu {
+      @include flex(column);
+      background: $dark-blue-color;
+      position: absolute;
+      top: 10rem;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 10rem);
+      z-index: 1;
+      transform: scale(0);
+      opacity: 0;
+      @extend %transition;
+
+      @include mq(lg) {
+        flex-direction: row;
+        position: initial;
+        top: initial;
+        left: initial;
+        width: initial;
+        height: 6rem;
+        transform: scale(1);
+        opacity: opacity(10);
+      }
+
+      a {
+        position: relative;
+        text-align: center;
+        color: $light-color;
+        padding: 0 3rem;
+        line-height: 6rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &__link {
+      opacity: opacity(7);
+      @extend %transition;
+
+      &--active,
+      &:hover {
+        background: $blue-color;
+        opacity: opacity(10);
+      }
+    }
+
+    &__submenu {
+      position: absolute;
+      top: 6rem;
+      height: 4rem;
+      width: 79.13rem;
+      background: $blue-color;
+      display: none;
+
+      @include mq(lg) {
+        display: flex;
+      }
+
+      a {
+        line-height: 4rem;
+        text-transform: uppercase;
+        opacity: opacity(7);
+        @extend %transition;
+
+        &:hover {
+          opacity: opacity(10);
+        }
+      }
+    }
+
+    &__menuBtn {
+      border: none;
+      outline: none;
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      width: 4rem;
+      height: 4rem;
+      background: $main-color;
+      color: $light-color;
+      font-size: font-size(xl);
+      line-height: 4rem;
+
+      @include mq(lg) {
+        display: none;
+      }
+
+      .fa-times {
+        display: none;
+      }
+    }
+  }
+
+  .menu--open {
+    .fa-times {
+      display: block;
+    }
+
+    .fa-bars {
+      display: none;
+    }
+
+    .nav__menu {
+      transform: scale(1);
+      opacity: opacity(10);
+    }
+  }
+
+  &__logo {
+    position: relative;
+    width: 15rem;
+    height: 10rem;
+
+    img {
+      position: absolute;
+      top: 25%;
+      left: 20%;
+      width: 60%;
+      height: 50%;
+    }
+  }
+
+  &__details {
+    display: none;
+    @include mq(lg) {
+      display: block;
+    }
+    ul {
+      @include flex();
+      height: 6rem;
+      padding: 0 2rem;
+      border-left: 0.3rem solid $blue-color;
+      background: $dark-blue-color;
+
+      li {
+        font-size: font-size(xs);
+        color: $light-color;
+        text-transform: uppercase;
+
+        &:not(:last-of-type) {
+          margin-right: 1.5rem;
+        }
+
+        i {
+          font-size: font-size(s);
+        }
+
+        span {
+          opacity: opacity(7);
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &__cart {
+    width: 8rem;
+    height: 10rem;
+    @include flex();
+    margin-right: 8rem;
+
+    @include mq(lg) {
+      width: 10rem;
+      margin-right: 0;
+    }
+
+    &Number {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: border-radius(circle);
+      text-align: center;
+      line-height: 2rem;
+      background: $main-color;
+      color: $light-color;
+      font-size: font-size(s);
+      margin-left: 1rem;
+    }
+
+    i {
+      font-size: font-size(l);
+      color: $light-color;
+    }
+  }
+
+  // center
+
+  &__center {
+    position: relative;
+    padding: 5rem 3rem;
+
+    img {
+      left: 15%;
+      width: 70%;
+      height: auto;
+      margin: 30rem 0 20rem;
+
+      @include mq(lg) {
+        left: 20%;
+        width: 60%;
+      }
+    }
+  }
+
+  &__text {
+    width: 100%;
+    @include flex($justify-content: space-between, $wrap: wrap);
+  }
+
+  // bottom
+
+  &__bottom {
+    padding: 0 3rem;
+    @include flex(row, space-between, flex-start, wrap);
+
+    ul {
+      display: flex;
+      margin-bottom: 5rem;
+
+      a {
+        width: 5rem;
+        height: 5rem;
+        border-radius: border-radius(circle);
+        text-align: center;
+        line-height: 5rem;
+        font-size: font-size(xl);
+        background: $main-color;
+        color: $light-color;
+        margin-right: 1rem;
+        @extend %transition;
+
+        &:hover {
+          background: $blue-color;
+          color: $main-color;
+        }
+      }
+    }
+
+    form {
+      margin-bottom: 3rem;
+
+      input {
+        border: none;
+        outline: none;
+        background: $dark-blue-color;
+        color: $light-color;
+        width: 100%;
+        height: 5rem;
+        padding: 0 2rem;
+        font-size: font-size(m);
+        border-radius: border-radius(round);
+
+        @include mq(lg) {
+          width: 30rem;
+          margin: 0;
+        }
+
+        &::placeholder {
+          color: $light-color;
+          opacity: opacity(5);
+          font-size: font-size(s);
+        }
+      }
+
+      button {
+        border: none;
+        outline: none;
+        background: $main-color;
+        width: 5rem;
+        height: 5rem;
+        border-radius: border-radius(circle);
+        color: $light-color;
+        font-size: font-size(xl);
+        margin-left: 1rem;
+        cursor: pointer;
+        @extend %transition;
+
+        &:hover {
+          background: $blue-color;
+          color: $main-color;
+        }
+      }
+    }
+  }
+}

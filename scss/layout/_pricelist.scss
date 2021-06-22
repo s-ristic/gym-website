@@ -1,0 +1,84 @@
+@use '../utils' as *;
+
+.pricelist {
+  padding: 0;
+  background: $dark-color;
+
+  @include grid(1, 0);
+
+  @include mq(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__card {
+    position: relative;
+    padding: 3rem;
+    @extend %transition;
+
+    @include mq(lg) {
+      padding: 4rem;
+    }
+
+    &:first-of-type {
+      background: $dark-blue-color;
+    }
+
+    &:nth-of-type(3) {
+      background: $main-color;
+    }
+
+    &:hover .pricelist__price {
+      opacity: opacity(5);
+    }
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    background: $blue-color;
+    padding: 2rem 2rem 6.5rem;
+    border-radius: border-radius(m);
+    box-shadow: box-shadow(m);
+  }
+
+  &__name {
+    display: inline-block;
+    font-size: font-size(s);
+    font-family: font-family(big);
+    color: $light-color;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    opacity: opacity(5);
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    font-family: font-family(big);
+    font-size: font-size(xxxl);
+    font-weight: font-weight(bold);
+    color: $light-color;
+    opacity: opacity(1);
+    @extend %transition;
+  }
+
+  ul {
+    list-style: square;
+    margin: 2rem 0 2rem 2.5rem;
+
+    li {
+      font-size: font-size(s);
+      color: $light-color;
+      opacity: opacity(7);
+      margin: 1rem 0;
+    }
+  }
+
+  a {
+    position: absolute;
+    bottom: 2rem;
+    width: calc(100% - 4rem);
+  }
+}
